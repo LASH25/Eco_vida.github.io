@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Vida - Fundamentos Sociológicos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d8659 0%, #4CAF50 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .btn-home {
+            background: white;
+            color: #2d8659;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-home:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2d8659 0%, #4CAF50 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #2d8659;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Fundamentos Sociológicos */
+        .fundamentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .fundamento-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .fundamento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .fundamento-card h3 {
+            color: #2d8659;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .fundamento-icon {
+            font-size: 2rem;
+        }
+
+        .fundamento-card p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .fundamento-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .fundamento-card li {
+            padding: 0.5rem 0;
+            color: #555;
+            display: flex;
+            align-items: start;
+        }
+
+        .fundamento-card li:before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Estudios */
+        .estudios-section {
+            background: #f9f9f9;
+            padding: 4rem 2rem;
+        }
+
+        .estudio-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 5px solid #4CAF50;
+        }
+
+        .estudio-card h4 {
+            color: #2d8659;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .estudio-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .estudio-info {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .estudio-info h5 {
+            color: #2d8659;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #2d8659;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .estudio-content {
+                grid-template-columns: 1fr;
+            }
+
+            .fundamentos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                🌱 Eco-Vida
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="btn-home">🏠 Inicio</a></li>
+                <li><a href="#fundamentos">Fundamentos</a></li>
+                <li><a href="#estudios">Estudios</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <h1>Fundamentos Sociológicos</h1>
+        <p>Análisis sociológico aplicado al desarrollo sustentable</p>
+    </section>
+
+    <!-- Fundamentos Sociológicos -->
+    <div class="container" id="fundamentos">
+        <h2 class="section-title">Fundamentos Sociológicos de Eco-Vida</h2>
+        <p class="section-subtitle">Nuestra empresa aplica teorías sociológicas para transformar organizaciones hacia prácticas sustentables</p>
+        
+        <div class="fundamentos-grid">
+            <div class="fundamento-card">
+                <h3><span class="fundamento-icon">👥</span> 1. Teoría de la Acción Social (Max Weber)</h3>
+                <p><strong>Efecto en las organizaciones:</strong></p>
+                <p>El cambio hacia prácticas sustentables comienza con la transformación de las acciones individuales. Implementamos programas que modifican comportamientos cotidianos de los empleados hacia el reciclaje.</p>
+                <ul>
+                    <li>Aumenta la participación individual en reciclaje</li>
+                    <li>Genera responsabilidad personal ambiental</li>
+                    <li>Mejora la cultura organizacional sustentable</li>
+                </ul>
+            </div>
+
+            <div class="fundamento-card">
+                <h3><span class="fundamento-icon">🏢</span> 2. Funcionalismo Estructural</h3>
+                <p><strong>Efecto en las organizaciones:</strong></p>
+                <p>Los sistemas de separación de residuos funcionan como estructuras organizacionales donde cada elemento cumple una función específica para mantener el equilibrio ecológico empresarial.</p>
+                <ul>
+                    <li>Mejora la cohesión y trabajo en equipo</li>
+                    <li>Define roles claros de responsabilidad ambiental</li>
+                    <li>Crea normas compartidas de sustentabilidad</li>
+                </ul>
+            </div>
+
+            <div class="fundamento-card">
+                <h3><span class="fundamento-icon">🔄</span> 3. Teoría del Cambio Social</h3>
+                <p><strong>Efecto en las organizaciones:</strong></p>
+                <p>Facilitamos la transición organizacional hacia modelos sostenibles, reconociendo que el cambio cultural es gradual y requiere educación continua.</p>
+                <ul>
+                    <li>Reduce resistencia al cambio organizacional</li>
+                    <li>Aumenta adaptación a nuevas prácticas</li>
+                    <li>Genera transformación cultural duradera</li>
+                </ul>
+            </div>
+
+            <div class="fundamento-card">
+                <h3><span class="fundamento-icon">🌍</span> 4. Conciencia Colectiva (Durkheim)</h3>
+                <p><strong>Efecto en las organizaciones:</strong></p>
+                <p>Promovemos valores compartidos sobre reciclaje y sostenibilidad, fortaleciendo la identidad ecológica grupal de la organización.</p>
+                <ul>
+                    <li>Fortalece identidad corporativa verde</li>
+                    <li>Crea sentido de pertenencia sustentable</li>
+                    <li>Mejora imagen organizacional externa</li>
+                </ul>
+            </div>
+
+            <div class="fundamento-card">
+                <h3><span class="fundamento-icon">⚖️</span> 5. Teoría del Conflicto Social</h3>
+                <p><strong>Efecto en las organizaciones:</strong></p>
+                <p>Reconocemos desigualdades en el acceso a prácticas sustentables. Democratizamos el reciclaje para todos los niveles organizacionales.</p>
+                <ul>
+                    <li>Promueve equidad en responsabilidad ambiental</li>
+                    <li>Aumenta inclusión en programas sustentables</li>
+                    <li>Mejora justicia social corporativa</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Estudios Etnográficos y Axiológicos -->
+    <section class="estudios-section" id="estudios">
+        <div class="container">
+            <h2 class="section-title">Estudios Etnográficos y Axiológicos</h2>
+            <p class="section-subtitle">Investigaciones sobre comportamientos y valores ambientales en organizaciones mexicanas</p>
+
+            <div class="estudio-card">
+                <h4>📊 Estudio Etnográfico 1: Cultura del Reciclaje en Empresas</h4>
+                <div class="estudio-content">
+                    <div class="estudio-info">
+                        <h5>Metodología:</h5>
+                        <p>Observación participante durante 6 meses en 5 empresas de Ciudad de México. Entrevistas a 50 empleados de diferentes niveles.</p>
+                    </div>
+                    <div class="estudio-info">
+                        <h5>Hallazgos:</h5>
+                        <p>• 73% desea reciclar pero carece de infraestructura<br>
+                        • Normas informales más influyentes que políticas<br>
+                        • Liderazgo aumenta participación en 45%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="estudio-card">
+                <h4>📊 Estudio Etnográfico 2: Prácticas Ambientales en Comunidades Rurales</h4>
+                <div class="estudio-content">
+                    <div class="estudio-info">
+                        <h5>Metodología:</h5>
+                        <p>Investigación de campo de 8 meses en 3 comunidades de Chiapas. Análisis de prácticas tradicionales de manejo de residuos.</p>
+                    </div>
+                    <div class="estudio-info">
+                        <h5>Hallazgos:</h5>
+                        <p>• Conocimiento ancestral de compostaje<br>
+                        • Visión holística de la naturaleza<br>
+                        • Necesidad de adaptar tecnologías al contexto</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="estudio-card">
+                <h4>💎 Estudio Axiológico 1: Valores Ambientales en Jóvenes Mexicanos</h4>
+                <div class="estudio-content">
+                    <div class="estudio-info">
+                        <h5>Metodología:</h5>
+                        <p>Encuesta a 1,200 jóvenes (18-25 años) en 10 estados. Análisis de valores y comportamientos pro-ambientales.</p>
+                    </div>
+                    <div class="estudio-info">
+                        <h5>Valores identificados:</h5>
+                        <p>• <strong>Responsabilidad ecológica:</strong> 89%<br>
+                        • <strong>Justicia intergeneracional:</strong> 82%<br>
+                        • <strong>Consumo consciente:</strong> 76%</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="estudio-card">
+                <h4>💎 Estudio Axiológico 2: Ética Corporativa y Sostenibilidad</h4>
+                <div class="estudio-content">
+                    <div class="estudio-info">
+                        <h5>Metodología:</h5>
+                        <p>Análisis comparativo de códigos éticos de 30 empresas mexicanas y su correlación con prácticas ambientales.</p>
+                    </div>
+                    <div class="estudio-info">
+                        <h5>Valores corporativos:</h5>
+                        <p>• <strong>Integridad ambiental</strong><br>
+                        • <strong>Transparencia en reportes</strong><br>
+                        • <strong>Compromiso comunitario</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Eco-Vida</h3>
+        <p>📧 contacto@eco-vida.com | 📱 +52 961 123 4567</p>
+        <p>📍 Tuxtla Gutiérrez, Chiapas, México</p>
+        <p>&copy; 2025 Eco-Vida. Separadores Ecológicos con Fundamentos Sociológicos</p>
+    </footer>
+</body>
+</html>

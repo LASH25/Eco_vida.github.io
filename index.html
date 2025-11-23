@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Vida - Separadores Ecológicos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d8659 0%, #4CAF50 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .btn-sociologia {
+            background: white;
+            color: #2d8659;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-sociologia:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2d8659 0%, #4CAF50 100%);
+            color: white;
+            padding: 150px 2rem 100px;
+            text-align: center;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s 0.3s backwards;
+        }
+
+        .cta-button {
+            background: white;
+            color: #2d8659;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s 0.6s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d8659;
+        }
+
+        .product-showcase {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-image-large {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .product-icon {
+            font-size: 10rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .eco-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #2d8659;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .product-details h2 {
+            color: #2d8659;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .feature-icon {
+            background: #4CAF50;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .price-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .price-large {
+            font-size: 2.5rem;
+            color: #2d8659;
+            font-weight: bold;
+        }
+
+        .buy-button-large {
+            flex: 1;
+            background: #4CAF50;
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .buy-button-large:hover {
+            background: #2d8659;
+            transform: scale(1.05);
+        }
+
+        .environmental-impact {
+            background: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+        }
+
+        .environmental-impact h3 {
+            text-align: center;
+            color: #2d8659;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .impact-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .impact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-card h4 {
+            color: #2d8659;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .impact-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .impact-summary {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #4CAF50;
+        }
+
+        .impact-summary h4 {
+            color: #2d8659;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .impact-summary p {
+            color: #555;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .impact-summary ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .impact-summary li {
+            padding: 0.7rem 0;
+            color: #555;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .impact-summary li:before {
+            content: "🌱";
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .impact-summary strong {
+            color: #2d8659;
+        }
+
+        .benefits {
+            background: #f5f5f5;
+            padding: 4rem 2rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            color: #2d8659;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            animation: slideDown 0.4s;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: #2d8659;
+        }
+
+        #modalBody h2 {
+            color: #2d8659;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        #modalBody p {
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .vision-mission {
+            background: linear-gradient(135deg, #2d8659 0%, #4CAF50 100%);
+            padding: 4rem 2rem;
+            color: white;
+        }
+
+        .vision-mission .section-title {
+            color: white;
+        }
+
+        .vm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .vm-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s;
+        }
+
+        .vm-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .vm-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .vm-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .vm-card p {
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        footer {
+            background: #2d8659;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .product-main {
+                grid-template-columns: 1fr;
+                padding: 2rem;
+            }
+
+            .price-section {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .buy-button-large {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                🌱 Eco-Vida
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#vision">Visión y Misión</a></li>
+                <li><a href="#politicas">Políticas y Objetivos</a></li>
+                <li><a href="sociologia.html" class="btn-sociologia">📚 Sociología</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <h1>Separa tu basura, salva el planeta</h1>
+        <p>Separadores ecológicos de alta calidad para tu hogar u oficina</p>
+        <button class="cta-button" onclick="document.getElementById('productos').scrollIntoView({behavior: 'smooth'})">
+            Ver Productos
+        </button>
+    </section>
+
+    <div class="container" id="productos">
+        <h2 class="section-title">Nuestro Producto Estrella</h2>
+        <div class="product-showcase">
+            <div class="product-main">
+                <div class="product-image-large">
+                    <div class="product-icon">♻️</div>
+                    <div class="eco-badge">100% Ecológico</div>
+                </div>
+                <div class="product-details">
+                    <h2>Separador Eco-Vida Premium</h2>
+                    <p class="product-subtitle">La solución completa para un futuro más verde</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Sistema de 3 compartimentos: Orgánicos, Reciclables y Residuos</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Materiales 100% reciclados y reciclables</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Diseño compacto y moderno</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Capacidad de 45 litros totales</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>Tapas con cierre hermético anti-olores</span>
+                        </div>
+                    </div>
+
+                    <div class="price-section">
+                        <div class="price-large">$1,299 MXN</div>
+                        <button class="buy-button-large">Comprar Ahora</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="environmental-impact">
+                <h3>🌍 ¿Cómo ayuda al medio ambiente?</h3>
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-icon">🌳</div>
+                        <h4>Reduce la deforestación</h4>
+                        <p>Al separar y reciclar papel correctamente, cada familia puede salvar hasta 7 árboles al año</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">💧</div>
+                        <h4>Ahorra agua</h4>
+                        <p>El reciclaje de plástico reduce el consumo de agua en un 40% comparado con la producción nueva</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">⚡</div>
+                        <h4>Reduce energía</h4>
+                        <p>Reciclar aluminio ahorra hasta 95% de la energía necesaria para producirlo desde cero</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">🏔️</div>
+                        <h4>Menos basureros</h4>
+                        <p>La correcta separación reduce hasta 80% los residuos que terminan en rellenos sanitarios</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">🐠</div>
+                        <h4>Protege océanos</h4>
+                        <p>Evita que toneladas de plástico contaminen mares y dañen la vida marina</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">☁️</div>
+                        <h4>Aire más limpio</h4>
+                        <p>Reduce emisiones de CO₂ hasta en 30% al disminuir la producción de materiales nuevos</p>
+                    </div>
+                </div>
+
+                <div class="impact-summary">
+                    <h4>✨ Tu impacto positivo</h4>
+                    <p>Al usar nuestro separador Eco-Vida y reciclar correctamente durante un año, tu familia puede:</p>
+                    <ul>
+                        <li>Evitar que <strong>500 kg de residuos</strong> contaminen el ambiente</li>
+                        <li>Ahorrar <strong>7,000 litros de agua</strong></li>
+                        <li>Reducir <strong>1.2 toneladas de CO₂</strong> (equivalente a plantar 60 árboles)</li>
+                        <li>Contribuir al reciclaje de <strong>250 kg de materiales</strong> que tendrán una segunda vida</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="benefits" id="beneficios">
+        <div class="container">
+            <h2 class="section-title">¿Por qué elegir Eco-Vida?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card" onclick="showBenefitInfo('eco')">
+                    <div class="benefit-icon">🌍</div>
+                    <h3>Eco-Amigable</h3>
+                    <p>Fabricados con materiales 100% reciclables</p>
+                </div>
+                <div class="benefit-card" onclick="showBenefitInfo('durabilidad')">
+                    <div class="benefit-icon">💪</div>
+                    <h3>Durabilidad</h3>
+                    <p>Resistentes al agua y al uso intensivo</p>
+                </div>
+                <div class="benefit-card" onclick="showBenefitInfo('diseno')">
+                    <div class="benefit-icon">🎨</div>
+                    <h3>Diseño Moderno</h3>
+                    <p>Se adaptan a cualquier espacio</p>
+                </div>
+                <div class="benefit-card" onclick="showBenefitInfo('envio')">
+                    <div class="benefit-icon">🚚</div>
+                    <h3>Envío Gratis</h3>
+                    <p>En compras mayores a $1,000 MXN</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="benefitModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <section class="vision-mission" id="vision">
+        <div class="container">
+            <h2 class="section-title">Nuestra Visión y Misión</h2>
+            <div class="vm-grid">
+                <div class="vm-card">
+                    <div class="vm-icon">🎯</div>
+                    <h3>Nuestra Misión</h3>
+                    <p>Promover la cultura del reciclaje y el cuidado del medio ambiente a través de productos innovadores y accesibles que faciliten la correcta separación de residuos en hogares, oficinas y espacios públicos de México, contribuyendo a un futuro más sostenible para las próximas generaciones.</p>
+                </div>
+                <div class="vm-card">
+                    <div class="vm-icon">👁️</div>
+                    <h3>Nuestra Visión</h3>
+                    <p>Ser la empresa líder en México en soluciones ecológicas para el manejo de residuos, reconocida por nuestra calidad, innovación y compromiso ambiental. Aspiramos a estar presentes en cada hogar y empresa mexicana, transformando la manera en que la sociedad gestiona sus desechos y contribuyendo activamente a la preservación del planeta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Políticas y Objetivos -->
+    <section class="container" id="politicas" style="padding: 4rem 2rem;">
+        <h2 class="section-title">Políticas y Objetivos de Eco-Vida</h2>
+        
+        <div style="max-width: 1000px; margin: 0 auto;">
+            <!-- Políticas -->
+            <div style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+                <h3 style="color: #2d8659; font-size: 2rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;">
+                    <span style="font-size: 2.5rem;">📋</span> Políticas Empresariales
+                </h3>
+                
+                <div style="display: grid; gap: 1.5rem;">
+                    <div style="padding: 1.5rem; background: #f9f9f9; border-radius: 12px; border-left: 4px solid #4CAF50;">
+                        <h4 style="color: #2d8659; margin-bottom: 0.5rem;">1. Política de Sostenibilidad Ambiental</h4>
+                        <p style="color: #555; line-height: 1.8;">Nos comprometemos a utilizar únicamente materiales 100% reciclables y reciclados en todos nuestros productos, minimizando nuestra huella de carbono y promoviendo la economía circular.</p>
+                    </div>
+                    
+                    <div style="padding: 1.5rem; background: #f9f9f9; border-radius: 12px; border-left: 4px solid #4CAF50;">
+                        <h4 style="color: #2d8659; margin-bottom: 0.5rem;">2. Política de Calidad</h4>
+                        <p style="color: #555; line-height: 1.8;">Garantizamos productos duraderos y de alta calidad que cumplan con estándares internacionales, ofreciendo garantía de 2 años en todos nuestros separadores ecológicos.</p>
+                    </div>
+                    
+                    <div style="padding: 1.5rem; background: #f9f9f9; border-radius: 12px; border-left: 4px solid #4CAF50;">
+                        <h4 style="color: #2d8659; margin-bottom: 0.5rem;">3. Política de Responsabilidad Social</h4>
+                        <p style="color: #555; line-height: 1.8;">Desarrollamos programas de educación ambiental gratuitos para comunidades y organizaciones, democratizando el acceso a prácticas sustentables en todo México.</p>
+                    </div>
+                    
+                    <div style="padding: 1.5rem; background: #f9f9f9; border-radius: 12px; border-left: 4px solid #4CAF50;">
+                        <h4 style="color: #2d8659; margin-bottom: 0.5rem;">4. Política de Transparencia</h4>
+                        <p style="color: #555; line-height: 1.8;">Mantenemos comunicación abierta con nuestros clientes sobre el impacto ambiental de nuestros productos y operaciones, publicando reportes anuales de sostenibilidad.</p>
+                    </div>
+                    
+                    <div style="padding: 1.5rem; background: #f9f9f9; border-radius: 12px; border-left: 4px solid #4CAF50;">
+                        <h4 style="color: #2d8659; margin-bottom: 0.5rem;">5. Política de Innovación Continua</h4>
+                        <p style="color: #555; line-height: 1.8;">Invertimos constantemente en investigación y desarrollo para mejorar nuestros productos y crear nuevas soluciones ecológicas que respondan a las necesidades del mercado.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Objetivos -->
+            <div style="background: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%); padding: 3rem; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <h3 style="color: #2d8659; font-size: 2rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;">
+                    <span style="font-size: 2.5rem;">🎯</span> Objetivos Estratégicos
+                </h3>
+                
+                <div style="display: grid; gap: 1.5rem;">
+                    <div style="padding: 1.5rem; background: white; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.08);">
+                        <h4 style="color: #2d8659; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span>📈</span> Objetivo 1: Expansión Nacional
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Alcanzar presencia en los 32 estados de México para el año 2027, distribuyendo más de 100,000 separadores ecológicos anualmente.</p>
+                    </div>
+                    
+                    <div style="padding: 1.5rem; background: white; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.08);">
+                        <h4 style="color: #2d8659; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span>🌱</span> Objetivo 2: Impacto Ambiental
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Contribuir a la reducción de 50,000 toneladas de residuos mal gestionados mediante la correcta separación en hogares y empresas.</p>
+                    </div>
+                    
+                    <div style="padding: 1.5rem; background: white; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.08);">
+                        <h4 style="color: #2d8659; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span>👥</span> Objetivo 3: Educación y Concientización
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Capacitar a más de 10,000 personas anualmente en prácticas de reciclaje y manejo responsable de residuos a través de nuestros programas educativos.</p>
+                    </div>
+                    
+                    <div style="padding: 1.5rem; background: white; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.08);">
+                        <h4 style="color: #2d8659; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span>🔬</span> Objetivo 4: Investigación Sociológica
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Realizar estudios anuales sobre comportamiento ambiental en organizaciones mexicanas para mejorar continuamente nuestras estrategias de intervención.</p>
+                    </div>
+                    
+                    <div style="padding: 1.5rem; background: white; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.08);">
+                        <h4 style="color: #2d8659; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span>🤝</span> Objetivo 5: Alianzas Estratégicas
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Establecer colaboraciones con gobiernos locales, empresas y organizaciones ambientales para amplificar nuestro impacto positivo en la sociedad.</p>
+                    </div>
+                    
+                    <div style="padding: 1.5rem; background: white; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.08);">
+                        <h4 style="color: #2d8659; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <span>♻️</span> Objetivo 6: Economía Circular
+                        </h4>
+                        <p style="color: #555; line-height: 1.8;">Implementar un programa de recuperación de productos al final de su vida útil, reciclando el 100% de los materiales para fabricar nuevos separadores.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Eco-Vida</h3>
+        <p>📧 contacto@eco-vida.com | 📱 +52 961 123 4567</p>
+        <p>📍 Tuxtla Gutiérrez, Chiapas, México</p>
+        <p>&copy; 2025 Eco-Vida. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const benefitsInfo = {
+            eco: {
+                title: '🌍 Eco-Amigable',
+                content: `Nuestros separadores están fabricados con materiales 100% reciclables y biodegradables. 
+                         Utilizamos plástico post-consumo reciclado y pinturas ecológicas libres de VOCs (compuestos 
+                         orgánicos volátiles). Cada producto que fabricamos representa un compromiso con el medio ambiente, 
+                         reduciendo la huella de carbono y promoviendo la economía circular. Al elegir Eco-Vida, no solo 
+                         adquieres un producto de calidad, sino que también contribuyes activamente a la reducción de 
+                         residuos plásticos en el planeta.`
+            },
+            durabilidad: {
+                title: '💪 Durabilidad Garantizada',
+                content: `Nuestros productos están diseñados para durar años. Utilizamos materiales de alta densidad 
+                         resistentes al agua, rayos UV, y al uso intensivo diario. Cada separador pasa por rigurosas 
+                         pruebas de calidad que garantizan su resistencia a impactos, cambios de temperatura y humedad. 
+                         Los mecanismos de apertura están diseñados para soportar más de 50,000 ciclos de uso. 
+                         Ofrecemos garantía de 2 años en todos nuestros productos, respaldando nuestra confianza en 
+                         la calidad superior de Eco-Vida.`
+            },
+            diseno: {
+                title: '🎨 Diseño Moderno y Funcional',
+                content: `El diseño de nuestros separadores combina estética contemporánea con funcionalidad práctica. 
+                         Cada modelo está disponible en múltiples colores que se adaptan a cualquier decoración, desde 
+                         hogares modernos hasta oficinas corporativas. Las etiquetas claras y el código de colores 
+                         facilitan la correcta separación de residuos. Los compartimentos están optimizados para 
+                         maximizar el espacio de almacenamiento mientras mantienen un perfil compacto. Además, incluyen 
+                         características inteligentes como asas ergonómicas, tapas de fácil apertura y bases antideslizantes.`
+            },
+            envio: {
+                title: '🚚 Envío Gratis a Todo México',
+                content: `Ofrecemos envío totalmente gratis en compras superiores a $1,000 MXN a cualquier parte de la 
+                         República Mexicana. Trabajamos con las mejores paqueterías para garantizar que tu pedido llegue 
+                         en perfectas condiciones en un plazo de 3 a 7 días hábiles. Todos nuestros productos se empaquetan 
+                         con materiales reciclables y reutilizables, manteniendo nuestro compromiso ecológico hasta en 
+                         los detalles del envío. Recibirás un número de rastreo para seguir tu pedido en tiempo real. 
+                         ¡Y si no estás satisfecho, tienes 30 días para devolverlo sin costo adicional!`
+            }
+        };
+
+        function showBenefitInfo(type) {
+            const modal = document.getElementById('benefitModal');
+            const modalBody = document.getElementById('modalBody');
+            const info = benefitsInfo[type];
+            
+            modalBody.innerHTML = `
+                <h2>${info.title}</h2>
+                <p>${info.content}</p>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('benefitModal');
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('benefitModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        document.querySelectorAll('.buy-button-large').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('¡Gracias por tu interés! Pronto implementaremos el carrito de compras.');
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            const hero = document.querySelector('.hero');
+            const scrolled = window.pageYOffset;
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
+</body>
+</html>
